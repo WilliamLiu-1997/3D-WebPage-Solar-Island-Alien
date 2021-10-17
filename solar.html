@@ -133,7 +133,6 @@
       $("#loading_background").fadeOut(800);
     }
   </script>
-  <script src="./JS/stats.min.js"></script>
   <script id="vertexShader" type="x-shader/x-vertex">
     uniform sampler2D noiseTexture;
     uniform float noiseScale;
@@ -223,9 +222,6 @@
     var camera;
     var renderer;
     var rotatespeed = 3 * fps_speed;
-    var stats = new Stats();
-    stats.showPanel(0); // 0: fps, 1: ms, 2: mb, 3+: custom
-    document.body.appendChild(stats.dom);
     var star_radius = new Array();
 
     var add_solar = true;
@@ -2093,7 +2089,6 @@
       customUniforms.time.value += delta;
       timeStamp += delta;
       if (timeStamp > singleFrameTime) {
-        stats.update();
         if (meteorites.length < 7) {
           var meteorite1 = generate_meteoriteObject3D(8);
           meteorites.push(meteorite1);
